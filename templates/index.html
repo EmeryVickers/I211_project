@@ -3,5 +3,23 @@
 {% block title %} Good Vibes Yoga {% endblock %}
 
 {% block content %}
-    <h1>testing!</h1>
+
+    <!--A simple name and description for the website, with a logo image.-->
+    <h1>Good Vibes Yoga</h1>
+    <img src="{{url_for('static', filename='images/logo.jpg')}}" alt="logo" width="100">
+    <div>
+        <p>image credit:</p><a href="https://pngtree.com/free-backgrounds'">free background photos from Pngtree.com</a>
+    </div>
+    
+    <div>
+        <p>
+            This is a website for Good Vibes Yoga's management team to manage and display their yoga classes.
+            On this site, management can create, edit, and delete yoga classes and display the information for each class.
+        </p>
+    </div>
+
+    <!--A button that takes you to the Classes page.-->
+    <a href="{{url_for('classes')}}">
+        <button type="button">Classes</button>
+    </a>
 {% endblock %}
