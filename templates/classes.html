@@ -3,6 +3,28 @@
 {% block title %} Classes {% endblock %}
 
 {% block content %}
+<!--This page shows a table of all classes with some basic info, allows you to click on a class for more info,
+and allows you to create a new class!-->
 <h1>Good Vibes Yoga Classes</h1>
+
+<!--Table-->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col"> Date </th>
+            <th scope="col"> Class Name</th>
+            <th scope="col"> Duration </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for class in class_dict %}
+            <tr>
+                <th scope="col">{{class_dict[class]['date']}}</th>
+                <th scope="col">{{class_dict[class]['name']}}</th>
+                <th scope="col">{{class_dict[class]['duration']}}</th>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
 {% endblock %}
