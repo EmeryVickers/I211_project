@@ -3,5 +3,61 @@
 {% block title %} Yoga Class {% endblock %}
 
 {% block content %}
-<h1>test</h1>
+<h1>{{varclass['name']}}</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p><strong> Date: </strong></p>
+        </div>
+        <div class="col">
+            <p> {{varclass['date']}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p><strong> Duration: </strong></p>
+        </div>
+        <div class="col">
+            <p> {{varclass['duration']}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p><strong> Yoga Type: </strong></p>
+        </div>
+        <div class="col">
+            <p> {{varclass['type']}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p><strong> Yoga Level: </strong></p>
+        </div>
+        <div class="col">
+            <p> {{varclass['level']}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p><strong> Trainer: </strong></p>
+        </div>
+        <div class="col">
+            <p> {{varclass['trainer']}} </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p><strong> Description: </strong></p>
+        </div>
+        <div class="col">
+            <p> {{varclass['description']}} </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
