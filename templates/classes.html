@@ -20,11 +20,12 @@ and allows you to create a new class!-->
         {% for class in class_dict %}
             <tr>
                 <th scope="col">{{class_dict[class]['date']}}</th>
-                <th scope="col">{{class_dict[class]['name']}}</th>
+                <th scope="col"><a href="{{url_for('classes',class_name=class)}}">{{class_dict[class]['name']}}</a></th>
                 <th scope="col">{{class_dict[class]['duration']}}</th>
             </tr>
         {% endfor %}
     </tbody>
 </table>
+
 
 {% endblock %}
