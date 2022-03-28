@@ -17,6 +17,18 @@ with open(YOGA_PATH, 'r') as csvfile:
 def index():
     return render_template("index.html")
 
+
+#REMEMBER REMEMBER REMEMBER TO FIX THE INDIVIDUAL CLASS PAGES!! ASK ABOUT SLUGS
 @app.route('/classes')
-def classes():
-    return render_template("classes.html",class_dict=class_dict)
+@app.route('/classes/<class_name>')
+def classes(class_name=None):
+    if class_name and class_name in class_dict.keys():
+        varclass = class_dict[class_name]
+        return render_template('class.html',varclass=varclass)
+    else:
+        return render_template("classes.html",class_dict=class_dict)
+
+
+@app.route('/classes/create')
+def class_form():
+    return render_template("class_form.html")
