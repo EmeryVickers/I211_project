@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import csv
+from operator import itemgetter
 
 app = Flask(__name__)
 
@@ -12,7 +13,11 @@ def data_reader():
     with open(YOGA_PATH, 'r') as csvfile:
         data = csv.DictReader(csvfile)
         class_dict = {row['name']:{'name':row['name'], 'type':row['type'], 'level':row['level'], 'date':row['date'], 'duration':row['duration'], 'trainer':row['trainer'], 'description':row['description']} for row in data}
-    return class_dict
+    
+    sorted_dict = {}
+    for entry in sorted(class_dict,key=itemgetter(4),reverse=True):
+        sorted_dict[entry]=class_dict[entry]
+    return sorted_dict
 
 #Routes to different pages of the site
 
@@ -60,7 +65,7 @@ def set_classes(classes):
     except Exception as err:
         print(err)
 
-
+# Create a class route
 @app.route('/classes/create', methods=['GET','POST'])
 def class_form():
     if request.method == 'POST':
@@ -76,7 +81,6 @@ def class_form():
         current_classes[request.form['name']]= new_classes
         # write csv data to csv file
         set_classes(current_classes)
-        # redirect to home after submit
         return redirect(url_for('classes'))
     else:
         return render_template("class_form.html")
