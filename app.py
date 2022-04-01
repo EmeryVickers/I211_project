@@ -39,8 +39,6 @@ def classes(class_name=None):
         return render_template("classes.html",class_dict=class_dict)
 
 
-
-
 #gets dictionary from csv data
 def get_classes():
     try:
