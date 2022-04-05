@@ -81,4 +81,11 @@ def class_form():
         set_classes(current_classes)
         return redirect(url_for('classes'))
     else:
-        return render_template("class_form.html")
+        return render_template("class_form.html",varclass=False)
+
+
+@app.route('/classes/<class_name>/edit')
+def class_edit(class_name=None):
+    class_dict = data_reader()
+    varclass = class_dict[class_name]
+    return render_template('class_form.html',varclass=varclass)

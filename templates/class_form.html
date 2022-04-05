@@ -3,6 +3,7 @@
 {% block title %}Add A Class {% endblock %}
 
 {% block content %}
+
 <form method="POST" name="add_class">
     <div class="container">
         <div class="row g-3 align-items-center mb-2">
@@ -10,7 +11,7 @@
                 <label for="date">Date:</label>
             </div>
             <div class="col">
-                <input type="text" id="date" name="date">
+                <input type="text" id="date" name="date" placeholder="Format as YYYY-MM-DD" value={{varclass['date']}}>
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -18,7 +19,7 @@
                 <label for="name">Class Name:</label>
             </div>
             <div class="col">
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" value={{varclass['name']}}>
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -26,7 +27,7 @@
                 <label for="duration">Duration:</label>
             </div>
             <div class="col">
-                <input type="text" id="duration" name="duration">
+                <input type="text" id="duration" name="duration" value={{varclass['duration']}}>
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
