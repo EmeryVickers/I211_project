@@ -19,6 +19,7 @@ def data_reader():
         sorted_dict[entry]=class_dict[entry]
     return sorted_dict
 
+
 #Routes to different pages of the site
 
 #index route
@@ -83,7 +84,7 @@ def class_form():
     else:
         return render_template("class_form.html",varclass=False)
 
-
+# Edit a class route
 @app.route('/classes/<class_name>/edit', methods=['GET','POST'])
 def class_edit(class_name=None):
     if request.method == 'POST':
