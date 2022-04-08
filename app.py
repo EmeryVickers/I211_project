@@ -84,8 +84,23 @@ def class_form():
         return render_template("class_form.html",varclass=False)
 
 
-@app.route('/classes/<class_name>/edit')
+@app.route('/classes/<class_name>/edit', methods=['GET','POST'])
 def class_edit(class_name=None):
-    class_dict = data_reader()
-    varclass = class_dict[class_name]
-    return render_template('class_form.html',varclass=varclass)
+    if request.method == 'POST':
+        # get csv data
+        current_classes = get_classes()
+    
+        # create dict to hold new data
+        new_classes = {}
+        # add form data to new dict
+        for key in YOGA_KEYS:
+            new_classes[key]=request.form[key]
+        # add new dict to csv data
+        current_classes[class_name]= new_classes
+        # write csv data to csv file
+        set_classes(current_classes)
+        return redirect(url_for('classes'))
+    else:
+        class_dict = data_reader()
+        varclass = class_dict[class_name]
+        return render_template('class_form.html',varclass=varclass)
