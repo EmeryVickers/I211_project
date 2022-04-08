@@ -100,7 +100,7 @@ def class_edit(class_name=None):
         current_classes[class_name]= new_classes
         # write csv data to csv file
         set_classes(current_classes)
-        return redirect(url_for('classes'))
+        return redirect(url_for('classes',class_name=new_classes['name']))
     else:
         class_dict = data_reader()
         varclass = class_dict[class_name]
