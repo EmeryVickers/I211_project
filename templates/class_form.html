@@ -11,7 +11,7 @@
                 <label for="date">Date:</label>
             </div>
             <div class="col">
-                <input type="text" id="date" name="date" placeholder="Format as YYYY-MM-DD" value={{varclass['date']}}>
+                <input type="text" id="date" name="date" placeholder="Format as YYYY-MM-DD" value="{{varclass['date']}}">
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -19,7 +19,7 @@
                 <label for="name">Class Name:</label>
             </div>
             <div class="col">
-                <input type="text" id="name" name="name" value={{varclass['name']}}>
+                <input type="text" id="name" name="name" value="{{varclass['name']}}">
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -27,7 +27,7 @@
                 <label for="duration">Duration:</label>
             </div>
             <div class="col">
-                <input type="text" id="duration" name="duration" value={{varclass['duration']}}>
+                <input type="text" id="duration" name="duration" value="{{varclass['duration']}}">
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -35,7 +35,7 @@
                 <label for="type">Type:</label>
             </div>
             <div class="col">
-                <input type="text" id="type" name="type">
+                <input type="text" id="type" name="type" value="{{varclass['type']}}">
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -44,9 +44,9 @@
             </div>
             <div class="col">
                 <select id="level" name = "level">
-                    <option>Beginner</option>
-                    <option>Intermediate</option>
-                    <option>Advanced</option>
+                    <option value="Beginner" {%if varclass['level']=="Beginner" %} selected {% endif %}>Beginner</option>
+                    <option value="Intermediate" {%if varclass['level']=="Intermediate" %} selected {% endif %}>Intermediate</option>
+                    <option value="Advanced" {%if varclass['level']=="Advanced" %} selected {% endif %}>Advanced</option>
                 </select>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <label for="trainer">Trainer:</label>
             </div>
             <div class="col">
-                <input type="text" id="trainer" name="trainer">
+                <input type="text" id="trainer" name="trainer" value="{{varclass['trainer']}}">
             </div>
         </div>
         <div class="row g-3 align-items-center mb-2">
@@ -63,7 +63,7 @@
                 <label for="description">Description:</label>
             </div>
             <div class="col">
-                <textarea id="description" name="description"> </textarea>
+                <textarea id="description" name="description" value="{{varclass['description']}}">{{varclass['description']}} </textarea>
             </div>
         </div>
         
