@@ -3,8 +3,8 @@
 {% block title %} Yoga Class {% endblock %}
 
 {% block content %}
-<!--This page shows the details for specific classes!-->
-
+<!--This page double checks to make sure you want to delete the class! -->
+<h1 class="mb-3 text-danger">Delete This Yoga Class?</h1>
 <h1 class="mb-3">{{varclass['name']}}</h1>
 
 <div class="container">
@@ -63,10 +63,10 @@
     </div>
 </div>
 
-<a href="{{url_for('class_edit',class_name=varclass['name'])}}">
-    <button type="button" class="btn btn-primary mb-2">Edit Class</button>
+<a href="{{url_for('classes',class_name=varclass['name'])}}">
+    <button type="button" class="btn btn-primary mb-2">Back to Class</button>
 </a>
-<a href="{{url_for('class_delete',class_name=varclass['name'])}}">
+<a href="{{url_for('classes',class_name=varclass['name'])}}">
     <button type="button" class="btn btn-danger mb-2">Delete this class</button>
 </a>
 {% endblock %}

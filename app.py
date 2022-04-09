@@ -105,3 +105,14 @@ def class_edit(class_name=None):
         class_dict = data_reader()
         varclass = class_dict[class_name]
         return render_template('class_form.html',varclass=varclass)
+
+
+# Delete a class route
+@app.route('/classes/<class_name>/delete')
+def class_delete(class_name=None):
+    class_dict = data_reader()
+    if class_name and class_name in class_dict.keys():
+        varclass = class_dict[class_name]
+        return render_template('class_delete.html',varclass=varclass)
+    else:
+        return render_template("classes.html",class_dict=class_dict)
