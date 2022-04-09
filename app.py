@@ -13,11 +13,9 @@ def data_reader():
     with open(YOGA_PATH, 'r') as csvfile:
         data = csv.DictReader(csvfile)
         class_dict = {row['name']:{'name':row['name'], 'type':row['type'], 'level':row['level'], 'date':row['date'], 'duration':row['duration'], 'trainer':row['trainer'], 'description':row['description']} for row in data}
+   
     
-    sorted_dict = {}
-    for entry in sorted(class_dict,key=itemgetter(4),reverse=True):
-        sorted_dict[entry]=class_dict[entry]
-    return sorted_dict
+    return class_dict
 
 
 #Routes to different pages of the site
